@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="SorteioGram, sorteios rápidos para Instagram! Rápido, fácil e confiável." />
+    <meta name="author" content="SorteioGram" />
     <title>Sorteios no Instagram - SorteioGram</title>
 
     <!-- Favicon-->
@@ -34,9 +34,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#numeros">Sorteio de Números</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#nomes">Sorteio de Nomes</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#amigo-secreto">Amigo Secreto</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#numeros">Sorteio de Números</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#nomes">Sorteio de Nomes</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#amigo-secreto">Amigo Secreto</a></li>
                 </ul>
             </div>
         </div>
@@ -54,7 +57,8 @@
                 <div class="divider-custom-line"></div>
             </div>
             <!-- Apresentação Subheading-->
-            <p class="presentation-subheading font-weight-light mb-0">Sorteios de números, nomes e amigo secreto. Rápido, fácil e confiável. </p>
+            <p class="presentation-subheading font-weight-light mb-0">Sorteios de números, nomes e amigo secreto.
+                Rápido, fácil e confiável. </p>
         </div>
     </header>
 
@@ -82,23 +86,9 @@
                                 e compartilhar o link com outras pessoas.
                             </h6>
                             <br />
-                            <form>
-                                <div class="form-group">
-                                    <small id="qtdnum_Help" class="form-text text-muted">Quantos números terá o sorteio?</small>
-                                    <input type="number" class="form-control" id="qtdnum" value="1">
-                                </div>
-                                <div class="form-group">
-                                    <small id="min-num_Help" class="form-text text-muted">Entre</small>
-                                    <input type="number" class="form-control" id="min-num" value="1">
-                                </div>
-                                <div class="form-group">
-                                    <small id="max-num_Help" class="form-text text-muted">e</small>
-                                    <input type="number" class="form-control" id="max-num" value="100">
-                                </div>
-                                <br />
-                                <div style="text-align: center;" >
-                                    <button type="submit" class="btn btn-lg bg-strongorange text-uppercase">Sortear Números</button>
-                                </div>
+
+                            <form method="POST" action="<?php echo DIRPAGE . "/sorteionumeros" ?>" style="text-align: center;">
+                                <button type="submit" class="btn btn-lg bg-strongorange text-uppercase">Sortear Números</button>
                             </form>
                         </div>
                     </div>
@@ -128,25 +118,12 @@
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">
-                                Informe quantos nomes você quer no resultado, insira os nomes um por linha. Clique em
+                                Crie sorteios de nomes. Informe quantos nomes você quer no resultado, insira os nomes um por linha. Clique em
                                 sortear nomes. Pronto!
                             </h6>
                             <br />
-                            <form>
-                                <div class="form-group">
-                                    <small id="qtdnomes_Help" class="form-text text-muted">O resultado terá quantos
-                                        nomes?</small>
-                                    <input type="number" class="form-control" id="qtdnomes" value="1">
-                                </div>
-                                <div class="form-group">
-                                    <small id="listanomes_Help" class="form-text text-muted">Insira aqui um nome por
-                                        linha</small>
-                                    <textarea class="form-control" id="listanomes" rows="3"></textarea>
-                                </div>
-                                <br />
-                                <div style="text-align: center;" >
-                                    <button type="submit" class="btn btn-lg bg-strongorange text-uppercase">Sortear Nomes</button>
-                                </div>
+                           <form method="POST" action="<?php echo DIRPAGE . "/sorteionomes" ?>" style="text-align: center;">
+                                <button type="submit" class="btn btn-lg bg-strongorange text-uppercase">Sortear Nomes</button>
                             </form>
                         </div>
                     </div>
@@ -182,39 +159,8 @@
                                 para cada e-mail informado.
                             </h6>
                             <br />
-                            <form>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Nome">
-                                    </div>
-                                    <div class="col">
-                                        <input type="email" class="form-control" placeholder="E-mail">
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Nome">
-                                    </div>
-                                    <div class="col">
-                                        <input type="email" class="form-control" placeholder="E-mail">
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Nome">
-                                    </div>
-                                    <div class="col">
-                                        <input type="email" class="form-control" placeholder="E-mail">
-                                    </div>
-                                </div>
-                                <br />
-                                <a class="text-uppercase text-dark" href="">+ Adicionar mais Participantes</a>
-                                <br /> <br />
-                                <div style="text-align: center;" >
-                                    <button type="submit" class="btn btn-lg bg-strongorange text-uppercase">Criar amigo Secreto</button>
-                                </div>
+                            <form method="POST" action="<?php echo DIRPAGE . "/sorteioamigo" ?>" style="text-align: center;">
+                                <button type="submit" class="btn btn-lg bg-strongorange text-uppercase">Sortear Amigo Secreto</button>
                             </form>
                         </div>
                     </div>
@@ -231,9 +177,9 @@
                 <!-- Sites Parceiros-->
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Sites Parceiros</h4>
-                    <a class="text-light" href="https://growsocial.com.br/?ref=link_sorteiogram.com">Ganhe mais seguidores no Instagram</a><br />
-                    <a class="text-light" href="https://linkna.bio/?ref=link_sorteiogram.com">Crie seu Link na Bio</a><br />
-                    <a class="text-light" href="https://sorteiotok.com/?ref=link_sorteiogram.com">Sorteio no TikTok</a><br />
+                    <a class="text-light" href="https://growsocial.com.br/?ref=link_sorteiogram.com" target="_blank">Ganhe mais seguidores no Instagram</a><br />
+                    <a class="text-light" href="https://linkna.bio/?ref=link_sorteiogram.com" target="_blank">Crie seu Link na Bio</a><br />
+                    <a class="text-light" href="https://sorteiotok.com/?ref=link_sorteiogram.com" target="_blank">Sorteio no TikTok</a><br />
                 </div>
                 <!-- Mapa do Site-->
                 <div class="col-lg-6 mb-5 mb-lg-0">
