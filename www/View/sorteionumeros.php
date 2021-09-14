@@ -153,12 +153,13 @@
                             ?>
 
                             <!-- Instanciando array de números sorteados e imprimindo -->
-                            <?php if($sorteadoFlag == true) { ?>        
+                            <?php if($sorteadoFlag == true && $erro_minmax == false && $erro_qtdnum == false) { ?>        
                                     
                                     <div class="alert alert-success" role="alert">
                                         <h5 class="text-center">Resultado: </h5>
                                         <?php for($i = 0; $i < $qtdnum; $i++) { ?>
-                                                <?php   if($i == ($qtdnum-1)) {
+                                                <?php   
+                                                        if($i == ($qtdnum-1)) {
                                                             echo($numerosArray[$i]);
                                                         }        
                                                         else {

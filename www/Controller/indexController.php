@@ -1,33 +1,12 @@
 <?php
     namespace Controller;
+    include_once('Model/sorteioNumerosModel.php');
+    use Model\sorteioNumerosModel;
+    include_once('Model/sorteioNomesModel.php');
+    use Model\sorteioNomesModel;
 
 
     class indexController {
-
-        
-        //---------------------------------- ROTAS ----------------------------------//
-
-        //encaminhamento para home.php
-        public function goHome() {
-            require('View/home.php');
-        }
-
-        //encaminhamento para sorteionumeros.php
-        public function goSorteioNumeros() {
-            require('View/sorteionumeros.php');
-        }
-
-        //encaminhamento para sorteionomes.php
-        public function goSorteioNomes() {
-            require('View/sorteionomes.php');
-        }
-
-        //encaminhamento para sorteioamigo.php
-        public function goSorteioAmigo() {
-            require('View/sorteioamigo.php');
-        }
-
-
 
 
          //---------------------------------- FUNÇÕES ----------------------------------//
@@ -36,14 +15,17 @@
         public function sortearNumeros() {
             
             if(isset($_POST['sorteianumero'])) {
-                
-                $qtdnum = $_POST['qtdnum'];     //quantidade de números que serão sorteados
-                $min_num = $_POST['min_num'];   //valor mínimo a sortear
-                $max_num = $_POST['max_num'];   //valor máximo a sortear
-                $numerosorteado = array();      //array de numeros sorteados
-                $sorteado = false;              //flag de validação se o sorteio foi feito
-                $erro_minmax = false;           //flag de validação para erro de min_num > max_num
-                $erro_qtdnum = false;           //flag de validação para o erro qtdnum == 0
+                 
+
+                $qtdnum = $_POST['qtdnum'];     
+                $min_num = $_POST['min_num'];   
+                $max_num = $_POST['max_num'];
+
+
+                $numerosorteado = array();      
+                $sorteado = false;
+                $erro_minmax = false;           
+                $erro_qtdnum = false;         
                 
 
                 if($min_num > $max_num) {
@@ -60,7 +42,6 @@
 
                     for($indice = 0; $indice < $qtdnum; $indice++) {
                         array_push($numerosorteado, (rand($min_num, $max_num)));
-                        
                     }
 
                     $sorteado = true;
@@ -117,6 +98,65 @@
                
             } //fim if [sorteianomes]
         } //fim função sortearNomes
+
+
+        //---------------------------------- ROTAS ----------------------------------//
+
+        //encaminhamento para home.php
+        public function goHome() {
+            require('View/home.php');
+        }
+
+        //encaminhamento para sorteionumeros.php
+        public function goSorteioNumeros() {
+
+            $sorteioNumero = new sorteioNumerosModel();
+
+            //instanciação de variáveis para primeira execução da tela
+            $qtdnum = $sorteioNumero->getQtdNum();
+            $min_num = $sorteioNumero->getMin_Num();
+            $max_num = $sorteioNumero->getMax_Num();
+            $sorteado = $sorteioNumero->getSorteado();
+            $erro_minmax = $sorteioNumero->getErroMinMax();
+            $erro_qtdnum = $sorteioNumero->getErroQtdNum();
+
+
+            $_SESSION['qtdnum'] = serialize($qtdnum);
+            $_SESSION['min_num'] = serialize($min_num);
+            $_SESSION['max_num'] = serialize($max_num);
+            $_SESSION['sorteado'] = serialize($sorteado);
+            $_SESSION['erro_minmax'] = serialize($erro_minmax);
+            $_SESSION['erro_qtdnum'] = serialize($erro_qtdnum);
+
+            require('View/sorteionumeros.php');
+        }
+
+        //encaminhamento para sorteionomes.php
+        public function goSorteioNomes() {
+
+            $sorteioNome = new sorteioNomesModel();
+
+            //instanciação de variáveis para a primeira execução da tela
+            $qtdnomes = $sorteioNome->getQtdNomes();
+            $sorteado = $sorteioNome->getSorteado();
+            $erro_qtdnomes = $sorteioNome->getErroQtdNomes();
+
+
+            $_SESSION['qtdnomes'] = serialize($qtdnomes);
+            $_SESSION['sorteado'] = serialize($sorteado);
+            $_SESSION['erro_qtdnomes'] = serialize($erro_qtdnomes);
+
+            require('View/sorteionomes.php');
+        }
+
+        //encaminhamento para sorteioamigo.php
+        public function goSorteioAmigo() {
+            require('View/sorteioamigo.php');
+        }
+
+
+
+
 
 
 
