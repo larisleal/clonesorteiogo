@@ -132,7 +132,7 @@
                             ?>
 
                             <!-- Instanciando array de números sorteados e imprimindo -->
-                            <?php if($sorteadoFlag == true) { ?>        
+                            <?php if($sorteadoFlag == true && $erro_qtdnomes == false) { ?>        
                                     
                                     <div class="alert alert-success" role="alert">
                                         <h4 class="alert-heading text-center">Sorteio feito com Sucesso!</h4>
